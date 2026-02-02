@@ -7,6 +7,11 @@ class ActivityService:
         return NGOActivity.objects.filter(is_active=True).order_by('date_time')
 
     @staticmethod
+    def get_all_activities():
+        """Get all registered activities (for admin view)"""
+        return NGOActivity.objects.all().order_by('date_time')
+
+    @staticmethod
     def create_activity(data):
         """create new NGO activity"""
         return NGOActivity.objects.create(**data)
